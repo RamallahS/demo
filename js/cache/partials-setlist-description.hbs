@@ -1,0 +1,60 @@
+<h4>Description</h4>
+<div class="col-sm-12">
+    <div class="col-sm-4">
+        <dl class="asset-description dl-horizontal">
+            <dt>ID:</dt>
+            <dd><%- cpCacheView.longToString(list_id) %></dd>
+
+            <dt>Name:</dt>
+            <dd><%- name %></dd>
+
+            <dt>Description:</dt>
+            <dd><%- description %></dd>
+        </dl>
+    </div>
+
+    <div class="col-sm-4">
+        <dl class="asset-description dl-horizontal">
+            <dt>Priority:</dt>
+            <dd><%- priority %></dd>
+
+            <dt>Created date:</dt>
+            <dd><%- cpCacheView.formatDateTime(created_date) %></dd>
+
+            <dt>Updated date:</dt>
+            <dd><%- cpCacheView.formatDateTime(last_updated) %></dd>
+        </dl>
+    </div>
+</div>
+
+<h4>Schedules</h4>
+<div class="col-sm-6">
+    <table>
+        <% _.forEach(schedules,function(schedule) { %>
+        <tr>
+            <td class="col-sm-4" style="vertical-align: top;">
+                <dl class="asset-description dl-horizontal">
+                    <dt>effective_from:</dt>
+                    <dd><%- cpCacheView.formatDateTime(schedule.effective_from) %></dd>
+                    <dt>effective_thru:</dt>
+                    <dd><%- cpCacheView.formatDateTime(schedule.effective_thru) %></dd>
+                </dl>
+            </td>
+            <td class="col-sm-4">
+                <% _.forEach(schedule.times,function(time) { %>
+                <dl class="asset-description dl-horizontal">
+                    <dt>days_of_week:</dt>
+                    <dd><%- time.days_of_week.join(', ') %></dd>
+                    <dt>local_time:</dt>
+                    <dd><%- time.local_time %></dd>
+                    <dt>start_time:</dt>
+                    <dd><%- cpCacheView.formatDateTime(time.start_time,{timeOnly:true}) %></dd>
+                    <dt>end_time:</dt>
+                    <dd><%- cpCacheView.formatDateTime(time.end_time,{timeOnly:true}) %></dd>
+                </dl>
+                <% }); %>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</div>

@@ -1,0 +1,40 @@
+<style>
+    .asset-description {
+        word-wrap: break-word;
+    }
+</style>
+
+<div class="col-sm-12" id="cache-view">
+
+    <h1 class="page-header">
+        <span i18n>__cache.page.title__</span>
+        <button id="clean-cache-button" class="btn btn-default pull-right">Clean cache</button>
+    </h1>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label>
+                <span i18n>__cache.page.setlists__</span>
+                (<span id="systemSize">...</span> / <span id="allSize"><%- allSize %></span>)
+            </label>
+            <select tabindex="1" autofocus id="setlist" size="10" class="form-control">
+                <% _.forEach(Setlist.getSetlistKeys(), function(value){ %>
+                <option value="<%- value %>"><%- value %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label i18n>__cache.page.resources__ </label> <span id="setlistSize"></span>
+            <select tabindex="2" id="assets" size="10" class="form-control"></select>
+        </div>
+
+        <div class="col-sm-5">
+            <label i18n>__cache.page.description__</label>
+            <dl class="dl-horizontal" id="description"></dl>
+        </div>
+    </div>
+
+    <div id="setlist-description"></div>
+
+</div>

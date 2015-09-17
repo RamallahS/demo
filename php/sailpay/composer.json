@@ -1,0 +1,26 @@
+{
+    "name": "bogachev/sailpay",
+    "description": "Client library for SailpayCRM.",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Vilhelm Bogachev",
+            "email": "vt-bogachev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sailpay\\": [
+                "classes",
+                "traits",
+                "traits/system",
+                "traits/user"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+        ]
+    }
+}
